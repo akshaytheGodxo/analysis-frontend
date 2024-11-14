@@ -4,19 +4,20 @@ import lightLogo from "../../../public/visionflow-high-resolution-logo-transpare
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useSelector } from "react-redux";
-import { RootState } from "@reduxjs/toolkit/query";
+import {  useSelector } from "react-redux";
 import { useState } from "react";
 import { FaTimes, FaBars, FaSun, FaMoon } from "react-icons/fa";
 import NavbarDropdown from "./navbar-dropdown";
-
+import { RootState, useAppDispatch } from "@/redux/store";
+import { toggleTheme } from "@/redux/slice/themeSlice";
 const Navbar = () => {
-  const isDarkMode = false;
+  const isDarkMode = true;
   const [mobileMenuOpen, setMobileMenu] = useState(false);
-//   const dispatch = useAppDispatch();
-//   const handleToggleTheme = () => {
-//     dispatch(toggleTheme());
-//   }
+  const dispatch = useAppDispatch();
+
+  const handleToggleTheme = () => {
+    dispatch(toggleTheme());
+  }
 
   const toggleMobileMenu = () => setMobileMenu(!mobileMenuOpen);
 
@@ -27,7 +28,7 @@ const Navbar = () => {
     { label: "Automobile Detection", href: "/" },
   ];
   return (
-    <nav className="flex justify-between items-center w-[92%] mx-auto px-4 py-3 border-b">
+    <nav className={`flex justify-between items-center w-[92%] mx-auto px-4 py-3 border-b ${isDarkMode ? "bg-black text-white" : "bg-white text-black" }`}>
       {/* logo part */}
       <div className="flex items-center space-x-4  w-full">
         <div className="md:hidden">
@@ -35,7 +36,7 @@ const Navbar = () => {
             onClick={toggleMobileMenu}
             className={`text-2xl ${
               isDarkMode
-                ? "bg-gray-950 text-gray-100 border-gray-800"
+                ? "bg-black text-gray-100 border-gray-800"
                 : "bg-white text-gray-950 border-gray-300"
             }`}
           >
@@ -43,7 +44,7 @@ const Navbar = () => {
           </Button>
         </div>
         <Link href="/" className="text-[1.6rem] font-normal w-[12rem] flex items-center">
-          <Image src={lightLogo} alt="company-logo" className="align-middle" />
+          <Image src={lightLogo} alt="company-logo" className="align-middle text-white" />
         </Link>
 
         <div className="hidden md:flex space-x-8 items-center mx-auto">
@@ -56,7 +57,7 @@ const Navbar = () => {
                 <Button
                   className={`${
                     isDarkMode
-                      ? "text-gray-200 hover:text-gray-100 bg-gray-950"
+                      ? "text-gray-200 hover:text-gray-100 bg-black"
                       : "text-gray-700 hover:text-gray-900 hover:bg-white bg-white"
                   }`}
                 >
@@ -69,7 +70,7 @@ const Navbar = () => {
                 <Button
                   className={`${
                     isDarkMode
-                      ? "text-gray-200 hover:text-gray-100 bg-gray-950"
+                      ? "text-gray-200 hover:text-gray-100 bg-black"
                       : "text-gray-700 hover:text-gray-900 hover:bg-white bg-white"
                   }`}
                 >
@@ -82,7 +83,7 @@ const Navbar = () => {
                 <Button
                   className={`${
                     isDarkMode
-                      ? "text-gray-200 hover:text-gray-100 bg-gray-950"
+                      ? "text-gray-200 hover:text-gray-100 bg-black"
                       : "text-gray-700 hover:text-gray-900 hover:bg-white bg-white"
                   }`}
                 >
@@ -99,7 +100,7 @@ const Navbar = () => {
           className={`absolute top-[9%] left-0 w-full min-h-[60vh] px-5 flex flex-col space-y-6 items-center 
                     ${
                       isDarkMode
-                        ? "bg-gray-950 text-gray-100"
+                        ? "bg-black text-gray-100"
                         : "bg-white text-gray-950"
                     } md:hidden`}
         >
@@ -112,7 +113,7 @@ const Navbar = () => {
                 <Button
                   className={`${
                     isDarkMode
-                      ? "text-gray-200 hover:text-gray-100 bg-gray-950"
+                      ? "text-gray-200 hover:text-gray-100 bg-black"
                       : "text-gray-700 hover:text-gray-900 bg-white"
                   } `}
                 >
@@ -125,7 +126,7 @@ const Navbar = () => {
                 <Button
                   className={`${
                     isDarkMode
-                      ? "text-gray-200 hover:text-gray-100 bg-gray-950"
+                      ? "text-gray-200 hover:text-gray-100 bg-black"
                       : "text-gray-700 hover:text-gray-900 hover:bg-white bg-white"
                   }`}
                 >
@@ -138,7 +139,7 @@ const Navbar = () => {
                 <Button
                   className={`${
                     isDarkMode
-                      ? "text-gray-200 hover:text-gray-100 bg-gray-950"
+                      ? "text-gray-200 hover:text-gray-100 bg-black"
                       : "text-gray-700 hover:text-gray-900 bg-white"
                   }`}
                 >
@@ -152,8 +153,8 @@ const Navbar = () => {
 
       <div className="flex items-center space-x-4">
         <Button
-            className={`${isDarkMode ? "text-gray-200 bg-gray-950" : "text-gray-700 bg-white hover:bg-white"}`}
-            
+            className={`${isDarkMode ? "text-gray-200 bg-black" : "text-gray-700 bg-white hover:bg-white"}`}
+            onClick={handleToggleTheme}
         >
             {isDarkMode ? <FaSun /> : <FaMoon />}
         </Button>

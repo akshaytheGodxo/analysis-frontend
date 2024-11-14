@@ -22,7 +22,7 @@ export default function NavbarDropdown({ label, items, className }: DropdownProp
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  const isDarkMode = false
+  const isDarkMode = true
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -42,7 +42,7 @@ export default function NavbarDropdown({ label, items, className }: DropdownProp
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(`flex items-center space-x-1 px-3 py-2 text-sm font-medium
-          ${isDarkMode ? 'text-gray-200 hover:text-gray-100 bg-gray-950' : 'text-gray-700 hover:text-gray-900 bg-white'}
+          ${isDarkMode ? 'text-gray-200 hover:text-gray-100 bg-black' : 'text-gray-700 hover:text-gray-900 bg-white'}
           focus:outline-none`, className)}
       >
         <span>{label}</span>
