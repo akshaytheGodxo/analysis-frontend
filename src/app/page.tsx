@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image";
 import Navbar from "@/components/ui/Navbar";
 import { HomePage } from "@/components/ui/Home";
@@ -8,7 +7,6 @@ import { Provider } from "react-redux";
 export default function Home() {
   return (
     <Provider store={store}>
-      <Navbar />
       <HomePage />
     </Provider>
   );

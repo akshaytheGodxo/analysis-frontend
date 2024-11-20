@@ -1,10 +1,8 @@
-'use client'
-
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { ChevronDownIcon } from '@radix-ui/themes'
 import { useSelector } from 'react-redux'
-import { RootState } from '@/redux/store'
+import { RootState, useAppDispatch } from '@/redux/store'
 import { cn } from "@/lib/utils";
 
 interface DropdownItem {
@@ -22,7 +20,10 @@ export default function NavbarDropdown({ label, items, className }: DropdownProp
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  const isDarkMode = true
+  // const isDarkMode = true;
+  const isDarkMode = useSelector((state: RootState) => state.theme.isDarkMode);
+  const [mobileMenuOpen, setMobileMenu] = useState(false);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {

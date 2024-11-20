@@ -1,5 +1,4 @@
 "use client";
-
 import lightLogo from "../../../public/visionflow-high-resolution-logo-transparent.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +10,8 @@ import NavbarDropdown from "./navbar-dropdown";
 import { RootState, useAppDispatch } from "@/redux/store";
 import { toggleTheme } from "@/redux/slice/themeSlice";
 const Navbar = () => {
-  const isDarkMode = true;
+  const isDarkMode = useSelector((state: RootState) => state.theme.isDarkMode);
+  // const isDarkMode = true;
   const [mobileMenuOpen, setMobileMenu] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -28,7 +28,7 @@ const Navbar = () => {
     { label: "Automobile Detection", href: "/" },
   ];
   return (
-    <nav className={`flex justify-between items-center w-[92%] mx-auto px-4 py-3 border-b ${isDarkMode ? "bg-black text-white" : "bg-white text-black" }`}>
+    <nav className={`flex justify-between items-center w-[92%] mx-auto px-4 py-3 border-b ${isDarkMode ? "bg-black text-white" : "bg-white text-black" } z-10`}>
       {/* logo part */}
       <div className="flex items-center space-x-4  w-full">
         <div className="md:hidden">
