@@ -9,6 +9,7 @@ import { FaTimes, FaBars, FaSun, FaMoon } from "react-icons/fa";
 import NavbarDropdown from "./navbar-dropdown";
 import { RootState, useAppDispatch } from "@/redux/store";
 import { toggleTheme } from "@/redux/slice/themeSlice";
+
 const Navbar = () => {
   const isDarkMode = useSelector((state: RootState) => state.theme.isDarkMode);
   // const isDarkMode = true;
@@ -27,8 +28,9 @@ const Navbar = () => {
     { label: "Face Detection", href: "/" },
     { label: "Automobile Detection", href: "/" },
   ];
+  
   return (
-    <nav className={`flex justify-between items-center w-[92%] mx-auto px-4 py-3 border-b ${isDarkMode ? "bg-black text-white" : "bg-white text-black" } z-10`}>
+    <nav className={`flex justify-between items-center w-[92%] mx-auto px-4 py-3 border-b-gray-100 ${isDarkMode ? "bg-black text-white" : "bg-white text-black" } z-10`}>
       {/* logo part */}
       <div className="flex items-center space-x-4  w-full">
         <div className="md:hidden">
@@ -152,13 +154,22 @@ const Navbar = () => {
       )}
 
       <div className="flex items-center space-x-4">
-        <Button
-            className={`${isDarkMode ? "text-gray-200 bg-black" : "text-gray-700 bg-white hover:bg-white"}`}
-            onClick={handleToggleTheme}
-        >
-            {isDarkMode ? <FaSun /> : <FaMoon />}
-        </Button>
+
+
         <>
+        <Button
+                  onClick={handleToggleTheme}
+                  className={`w-full justify-center ${isDarkMode
+                    ? 'text-yellow-300 hover:text-yellow-200 bg-gray-800 hover:bg-gray-700'
+                    : 'text-blue-600 hover:text-blue-700 bg-gray-100 hover:bg-gray-200'
+                    }`}
+                >
+                  {isDarkMode ? <FaSun className="mr-2" /> : <FaMoon className="mr-2" />}
+                  {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+                </Button>
+
+
+
             <Link href="/register">
               <Button
                 className={`text-l px-4 py-2 rounded-lg 
