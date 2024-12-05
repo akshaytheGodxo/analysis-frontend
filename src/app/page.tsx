@@ -8,6 +8,6 @@ export default function Home() {
   return (
     <Provider store={store}>
       <HomePage />
-    </Provider>
+    </Provider> 
   );
 }

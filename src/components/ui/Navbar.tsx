@@ -3,30 +3,22 @@ import lightLogo from "../../../public/visionflow-high-resolution-logo-transpare
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {  useSelector } from "react-redux";
 import { useState } from "react";
 import { FaTimes, FaBars, FaSun, FaMoon } from "react-icons/fa";
 import NavbarDropdown from "./navbar-dropdown";
-import { RootState, useAppDispatch } from "@/redux/store";
-import { toggleTheme } from "@/redux/slice/themeSlice";
 
 const Navbar = () => {
-  const isDarkMode = useSelector((state: RootState) => state.theme.isDarkMode);
-  // const isDarkMode = true;
   const [mobileMenuOpen, setMobileMenu] = useState(false);
-  const dispatch = useAppDispatch();
+  const isDarkMode = true;
 
-  const handleToggleTheme = () => {
-    dispatch(toggleTheme());
-  }
 
   const toggleMobileMenu = () => setMobileMenu(!mobileMenuOpen);
 
   const companyServices = [
-    { label: "HeatMap Detection", href: "/main" },
-    { label: "Video Analaysis", href: "/" },
-    { label: "Face Detection", href: "/" },
-    { label: "Automobile Detection", href: "/" },
+    
+    { label: "Hand Gesture Detection", href: "/hand-detection" },
+    { label: "Face Detection", href: "/face-detection" },
+    
   ];
   
   return (
@@ -158,7 +150,7 @@ const Navbar = () => {
 
         <>
         <Button
-                  onClick={handleToggleTheme}
+                  
                   className={`w-full justify-center ${isDarkMode
                     ? 'text-yellow-300 hover:text-yellow-200 bg-gray-800 hover:bg-gray-700'
                     : 'text-blue-600 hover:text-blue-700 bg-gray-100 hover:bg-gray-200'

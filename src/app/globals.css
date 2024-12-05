@@ -13,15 +13,23 @@
   --text-color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
+}
+
+video {
+  width: 600px;
+  height: 400px;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }

@@ -5,21 +5,21 @@ import Image from 'next/image';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-secondary border-t">
+    <footer className="bg-secondary border-t mt-36">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between gap-8">
           <div className="mb-6 md:mb-0 flex-1">
             <a href="/" className="flex items-center">
               <Image
-                width={500}
-                height={500}
+              width={400}
+              height={100}
                 src="/visionflow-high-resolution-logo-transparent.png"
-                className="h-8 w-8 me-3"
+                className="h-8 w-[40%] me-3"
                 alt="Logo"
               />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                 VisionFlow
-              </span>
+              </span> */}
             </a>
             <p className="mt-8 text-md text-muted-foreground">
               Effortlessly create and share stunning flowcharts and diagrams.
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
               <ul className="text-muted-foreground font-medium">
                 <li className="mb-4">
                   <a
-                    href="https://github.com/subhadeeproy3902/BloxAI"
+                    href=""
                     className="hover:underline "
                     target="_blank"
                   >
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <a
-                    href="https://chat.whatsapp.com/E5oRd1VG1Ov4HoNPq4QcRU"
+                    href=""
                     className="hover:underline"
                     target="_blank"
                   >
@@ -93,18 +93,42 @@ const Footer: React.FC = () => {
               <ul className="text-muted-foreground font-medium">
                 <li className="mb-4">
                   <a
-                    href="https://www.linkedin.com/in/subhadeep3902/"
+                    href=""
                     className="hover:underline"
                   >
-                    Subhadeep Roy
+                    Akshay Singh
                   </a>
                 </li>
                 <li className="mb-4">
                   <a
-                    href="https://www.linkedin.com/in/anishbiswas777/"
+                    href=""
                     className="hover:underline"
                   >
-                    Anish Biswas
+                    Manish Pratap
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a
+                    href=""
+                    className="hover:underline"
+                  >
+                    Manish Mehlawat
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a
+                    href=""
+                    className="hover:underline"
+                  >
+                    Akshansh Patel
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a
+                    href=""
+                    className="hover:underline"
+                  >
+                    Adya Sharma 
                   </a>
                 </li>
               </ul>
@@ -145,14 +169,14 @@ const Footer: React.FC = () => {
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-500 sm:text-center dark:text-neutral-500">
             © 2024{" "}
-            <a href="https://blox-ai.vercel.app/" className="hover:underline">
-              BloxAI
+            <a href="" className="hover:underline">
+              VisionFlow
             </a>
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center items-center sm:mt-0">
             <a
-              href="https://chat.whatsapp.com/E5oRd1VG1Ov4HoNPq4QcRU"
+              href=""
               className="text-neutral-500 hover:text-gray-900 dark:hover:text-white ms-5"
             >
               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px" className="w-6">
@@ -160,7 +184,7 @@ const Footer: React.FC = () => {
               </svg>
             </a>
             <a
-              href="https://github.com/subhadeeproy3902/BloxAI"
+              href=""
               className="text-neutral-500 hover:text-gray-900 dark:hover:text-white ms-5"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github w-6">

@@ -10,7 +10,7 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{ts,tsx}"
   ],
-  // darkMode: "class",
+  darkMode: "class",
   theme: {
     extend: {
       colors: {

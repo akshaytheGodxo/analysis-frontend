@@ -1,9 +1,9 @@
+'use client';
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { ChevronDownIcon } from '@radix-ui/themes'
-import { useSelector } from 'react-redux'
-import { RootState, useAppDispatch } from '@/redux/store'
 import { cn } from "@/lib/utils";
+import { Button } from './button';
 
 interface DropdownItem {
   label: string
@@ -21,10 +21,8 @@ export default function NavbarDropdown({ label, items, className }: DropdownProp
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   // const isDarkMode = true;
-  const isDarkMode = useSelector((state: RootState) => state.theme.isDarkMode);
   const [mobileMenuOpen, setMobileMenu] = useState(false);
-  const dispatch = useAppDispatch();
-
+  const isDarkMode = true;
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -52,17 +50,17 @@ export default function NavbarDropdown({ label, items, className }: DropdownProp
       {isOpen && (
         <div
           className={`absolute right-0 mt-2 w-48 rounded-md shadow-lg ring-1 ring-opacity-5 py-1
-            ${isDarkMode ? 'bg-gray-800 text-gray-200 ring-white' : 'bg-white text-gray-700 ring-black'}`}
+            ${isDarkMode ? 'bg-black text-gray-200 ring-white' : 'bg-white text-gray-700 ring-black'} z-50`}
         >
           {items.map((item, index) => (
             <Link
               key={index}
               href={item.href}
               className={`block px-4 py-2 text-sm 
-                ${isDarkMode ? 'hover:bg-gray-700 text-white' : 'hover:bg-gray-100 text-black'} `}
+                ${isDarkMode ? 'hover:bg-black text-white' : 'hover:bg-gray-100 text-black'} `}
               onClick={() => setIsOpen(false)}
             >
-              {item.label}
+              <Button>{item.label}</Button>
             </Link>
           ))}
         </div>

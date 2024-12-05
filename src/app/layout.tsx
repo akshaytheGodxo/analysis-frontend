@@ -29,11 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  
+  const isDarkMode = true;
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+        className={isDarkMode ? "dark" : ""}
       >
 
         <ThemeProvider attribute="class">
